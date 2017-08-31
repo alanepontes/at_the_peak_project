@@ -29,7 +29,7 @@ class Video(models.Model):
     @property
     def time_factor(self):
         diff_beetween_datas = datetime.now(timezone.utc) - self.date_uploaded
-        print(diff_beetween_datas)
+        
         return max(0, 1 - (diff_beetween_datas.days/Util.DAYS_IN_YEAR))
 
     @property
@@ -98,7 +98,7 @@ class Video(models.Model):
                                 When(is_positive=False, then=1),
                                 output_field=IntegerField(),
                             )
-                        ))['comments_up']
+                        ))['comments_down']
    
 
     def __str__(self):
